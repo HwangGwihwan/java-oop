@@ -70,11 +70,10 @@ public class MethodEx2 {
 		
 		// 몇자리 숫자인지 구하기
 		int i = 0;
-		while (num >= 10) {
+		while (num > 0) {
 			num = num / 10;
 			i++;
 		}
-		i++;
 		
 		// 배열에 숫자 넣기
 		result = new int[i];
@@ -84,6 +83,7 @@ public class MethodEx2 {
 		}
 		return result;
 	}
+	
 	
 	// 252 -> {"2", "5", "2"}
 	public String[] m5b(int num) { // substring() 메서드
