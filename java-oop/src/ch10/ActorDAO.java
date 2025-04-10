@@ -12,8 +12,8 @@ public class ActorDAO {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		String sql = "insert into actor (first_name, last_name) values (?, ?)";
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "java1234");
 		
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "java1234");
 		stmt = conn.prepareStatement(sql);
 		stmt.setString(1, actor.getFirstName());
 		stmt.setString(2, actor.getLastName());
@@ -38,6 +38,7 @@ public class ActorDAO {
 		stmt.setInt(1, limit);
 		rs = stmt.executeQuery();
 		
+		// ResultSet(특수한) -> ArrayList(일반적:기본API, 문법)
 		while (rs.next()) {
 			Actor a = new Actor();
 			a.setActorId(rs.getInt("actorId"));
@@ -52,3 +53,4 @@ public class ActorDAO {
 		return list;
 	}
 }
+
